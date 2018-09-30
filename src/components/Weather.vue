@@ -2,6 +2,7 @@
   <div>
     <div class="City-temp">{{this.cityTemp}}</div>
     <div class="City-weather">{{this.cityWeather}}</div>
+    <div class="City-time">{{this.cityTime}}</div>
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -72,6 +73,13 @@ export default {
     },
     cityWeather() {
       return _.get(this, 'city.text')
+    },
+    cityTime() {
+      const date = _.get(this, 'city.date')
+      if (!date) return ''
+      const dateSplit = date.split(':')
+      return dateSplit[0].slice(-2) + ':' + dateSplit[1].slice(0,5)
+      
     }
   }
 }
@@ -92,6 +100,14 @@ export default {
     -webkit-transform: translate(-50%, 0); 
     left: 50%;
     top: 50%;
+    opacity: 0.3;
+  }
+  .City-time {
+    font-size: 4vh;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0); 
+    left: 50%;
+    top: 55%;
     opacity: 0.3;
   }
 </style>
