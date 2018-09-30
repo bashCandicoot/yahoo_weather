@@ -4,10 +4,10 @@ export default class MatrixService {
 	constructor({canvas, ctx}) {
 		this.canvas = canvas
 		this.ctx = ctx
-		this.drawInterval = 155
+		this.drawInterval = 115
 		this.fontSize = 40
-		this.fontGap = 20
-		this.symbols = ['L', 'O', 'N', 'D', 'O', 'N']
+		this.fontGap = 0
+		this.symbols = []
 	}
 
 	getCanvasSize () {
@@ -16,7 +16,7 @@ export default class MatrixService {
 	}
 	
 	drawSymbolsInterval () {
-			setInterval (() => this.drawSymbols(), this.drawInterval);
+		setInterval (() => this.drawSymbols(), this.drawInterval);
 	}
 	
 	getNumOfColumns () {
@@ -45,7 +45,7 @@ export default class MatrixService {
 	}
 	
 	isYPosGreaterThanCanvasHeight(yPos) {
-		return yPos * this.fontSize > this.canvas.height
+		return yPos.pos * this.fontSize > this.canvas.height
 	}
 	
 	fillText({ symbol, xPos, yPos }) {
@@ -72,7 +72,7 @@ export default class MatrixService {
 				xPos: index * (this.fontSize + this.fontGap),
 				yPos: yPos.pos * (this.fontSize + this.fontGap)
 			});
-			this.isYPosGreaterThanCanvasHeight && this.randomBool() ?  yPositions[index].pos = 0 : yPositions[index].pos += 1;
+			this.isYPosGreaterThanCanvasHeight(yPos) && this.randomBool() ?  yPositions[index].pos = 0 : yPositions[index].pos += 1;
 		})
 		if (!this.randomBool()) this.fadeOutSymbols()
 	}
