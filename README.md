@@ -19,7 +19,4 @@ npm run serve
 npm run build
 ```
 
-Run:  
-
-```http://localhost:8080/```  
-  
+After ```npm run serve``` head to ```http://localhost:8080/``` in a browser
