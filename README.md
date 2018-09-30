@@ -1,4 +1,8 @@
-# yahoo_weather
+# Yahoo Weather Matrix Screensaver (Vue.js)
+
+Vue.js app that fetches a city from the Yahoo Weather API and displays the name in a matrix style screensaver
+
+![alt text](screenshot.png)
 
 ## Project setup
 ```
@@ -15,12 +19,7 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
+Run:  
 
-### Lints and fixes files
-```
-npm run lint
-```
+```http://localhost:8080/```  
+  
